@@ -37,14 +37,16 @@ describe("Summary Form", () => {
 
     // popover starts out hidden
     const nullPopover = screen.queryByText(
-      /no ice cream will actually be delivere/i
+      /No ice cream will actually be delivered/i
     );
     expect(nullPopover).not.toBeInTheDocument();
 
     // popover appears on mouseover of checkbox label
     const termsAndConditions = screen.getByText(/terms and conditions/i);
     await user.hover(termsAndConditions);
-    const popover = screen.getByText(/no ice cream will actually be delivere/i);
+    const popover = screen.getByText(
+      /No ice cream will actually be delivered/i
+    );
     expect(popover).toBeInTheDocument();
 
     // popover disappears when we mouse out
